@@ -1,0 +1,53 @@
+body {
+    float:left;
+    width:100%;
+}
+
+h1, div, p, body {
+    float: left;
+}
+
+h1 {
+    margin: 0;
+    text-align: center;
+    width: 100%;
+}
+
+#status {
+    min-height: 30px;
+    margin: 0 0 0 0;
+    width:95%;
+    padding-right:5%;
+}
+
+#status p {
+    height: 25px;
+    padding: 2.5px 0px 2.5px 0px;
+    margin: 0 0 0 0;
+    width:100%;
+}
+
+#editor {
+    padding-right:5%;
+    width:95%;
+}
+
+#editor-area {
+    width:98%;
+    height:850px;
+}
+
+#pdf-viewer {
+    padding-right:5%;
+    width:95%;
+    height: 600px;
+}
+
+#pdf {
+    width: 98%;
+    height: 800px;
+}
+
+#title {
+    text-align: center;
+}

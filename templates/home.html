@@ -1,0 +1,23 @@
+
+<html>
+<head>
+    <script>var ip = "{{ ip }}"</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ ip }}/js/autosave.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ ip }}/css/style.css">
+</head>
+<body>
+<h1 id="title">Awesome Latex Editor</h1>
+<div id="status"></div>
+<div id="editor">
+    <textarea id="editor-area" rows="50" cols="170"  spellcheck="false">
+        {{ data }}
+    </textarea>
+</div>
+<div id="pdf-viewer">
+    <iframe src="{{ ip }}/assets/bare_conf.pdf" id="pdf"></iframe>
+</div>
+
+</body>
+
+</html>
