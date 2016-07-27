@@ -1,6 +1,6 @@
 
 window.setInterval(function(){
-    $.ajax({url: ip + ":5000/api/pdf_changed",
+    $.ajax({url: ip + ":" + port + "/api/pdf_changed",
         type: 'GET',
         dataType: 'text',
         contentType: "application/json",

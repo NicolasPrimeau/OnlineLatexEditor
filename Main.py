@@ -2,7 +2,7 @@ import json
 from subprocess import call
 
 import shutil
-from flask import Flask, request, Response, render_template
+from flask import Flask, request, render_template
 import socket
 import fcntl
 import struct
@@ -21,17 +21,26 @@ def get_ip_address(ifname):
     )[20:24])
 
 IP = "http://" + get_ip_address('eth0')
+PORT = "50001"
+
+
+@app.after_request
+def after_request(response):
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+    response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
+    return response
 
 
 @app.route("/")
 def home():
     lines = [line.strip("\n") for line in open("files/bare_conf.tex")]
-    return render_template('home.html', data="\n".join(lines), ip=IP)
+    return render_template('home.html', data="\n".join(lines), ip=IP, port=PORT)
 
 
 @app.route("/pdf")
 def pdf():
-    return render_template('pdf_window.html', ip=IP)
+    return render_template('pdf_window.html', ip=IP, port=PORT)
 
 
 @app.route("/api/save_document", methods=['POST'])
@@ -50,9 +59,8 @@ def save_document():
 def changed():
     global pdf_changed
     obj = json.dumps({"changed": pdf_changed})
-    print(obj)
     pdf_changed = False
     return obj, 201
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", threaded=False)
+    app.run(host="0.0.0.0", port=int(PORT), threaded=False)

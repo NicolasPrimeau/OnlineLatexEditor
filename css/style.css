@@ -35,6 +35,7 @@ h1 {
 #editor-area {
     width:98%;
     height:850px;
+    font-size: 25px;
 }
 
 #pdf-viewer {

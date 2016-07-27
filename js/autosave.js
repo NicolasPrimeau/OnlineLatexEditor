@@ -1,6 +1,6 @@
 //setup before functions
 var typingTimer;                //timer identifier
-var doneTypingInterval = 2000;  //time in ms (5 seconds)
+var doneTypingInterval = 5000;  //time in ms (5 seconds)
 
 
 $(function() {
@@ -17,7 +17,7 @@ $(function() {
             $.ajax({
               type: "POST",
               contentType: "application/json; charset=utf-8",
-              url:  ip + ":5000/api/save_document",
+              url:  ip + ":" + port + "/api/save_document",
               data: JSON.stringify({"text": $("#editor-area").val()
                                     }),
               success: function( data ) {
